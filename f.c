@@ -15,33 +15,31 @@ int i;
            break;
         }
     }
-
-
+    printf(" the array you entered \n");
+    for (int j=0; j<=i; j++){
+     printf ("%d: %f  ",j,array [j]);
+    }
     printf ("\n type m or f or s or l\n");
+
     getchar();
     scanf("%c",&c);
 
 switch (c){
-    case 'm' :{
+    case'm':{
     gmean (array);
-    break;
     }
-    case 'h':{
+    case'h':{
     highst(array);
-    break;
     }
-    case 'l':{
-    lowest(array,i);
-    break;
+    case'l':{
+    lowest(array);
     }
-    case 'f':{
+    case'f':{
     sum(array);
-    break;
     }
     default :
         {
             printf("type the right character\n");
-            break;
         }
 
 }
@@ -56,9 +54,9 @@ int sum ( float matrix[])
 {
   float summ;
 summ = matrix[0];
-for ( int i=1; i<=15 ; i++){
-        if (matrix[i]> 0){
-   summ = summ + matrix [i] ;
+for ( int k=1; k<=15 ; k++){
+        if (matrix[k]> 0){
+   summ = summ + matrix [k] ;
         }
    }
 
@@ -67,10 +65,9 @@ for ( int i=1; i<=15 ; i++){
 return summ;
 }
 
-int lowest ( float matrix [],int j){
+int lowest ( float matrix []){
 float min ;
-
-for (int k=0; k<j&& matrix[k]>0; k++ ){
+for (int k=0; k<15&& matrix[k]>0; k++ ){
 
     if ( min > matrix [k]){
 
@@ -87,9 +84,9 @@ return min;
 int highst (float matrix[]){
 float max ;
 max = matrix [0];
-for ( int i=0; i<15; i++){
-    if (matrix[i]>max){
-        max = matrix[i];
+for ( int k=0; k<15; k++){
+    if (matrix[k]>max){
+        max = matrix[k];
     }
 }
 printf("the maximum value is: %f\n", max);
@@ -104,15 +101,15 @@ return max;
 int gmean (float matrix [])
 {
 double mean;
-double sumn;
+double sum;
 double x;
-    sumn = 1.0;
+    sum = 1.0;
 
-    for (int i =0; i< 15 ; i++){
-        x=i;
-        if (matrix [i]>=0)
+    for (int k =0; k< 15 ; k++){
+        x=k;
+        if (matrix [k]>=0)
         {
-            sumn = sumn * matrix [i];
+            sum = sum * matrix [k];
         }
 
         else{
@@ -120,12 +117,14 @@ double x;
         }
     }
 
-    mean = pow(sumn,1/x);
+    mean = pow(sum,1/x);
 
     printf("the geometric mean = %lf\n", mean);
 
     return mean;
 
 }
+
+
 
 
